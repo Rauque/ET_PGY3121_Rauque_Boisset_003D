@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/estilos.css' %}">
+    <link rel="icon" type="img/x-icon" href="{% static 'img/icono.png' %}">
+    <title>Misión</title>
+</head>
+<body>  
+    <br>
+    <div class="container-fluid" >
+            <div class="col-md" >
+                <div class="card" style="border-color:black ;">
+                    <div class="card-body">
+                        <h3 class="card-title" style="text-align: center;">¿Cuál es la misión de mascotitas?</h3>
+                        <p class="card-text" style="text-align: center; margin-bottom: 20px;">En mascotitas buscamos ayudar a un grupo de amigas las cuales también buscan ayudar pero a una fundación sin animos de lucro
+                            nosotros estamos encargados principalmente de la creación de la página para poder darle visibilidad a los productos que ellas estan vendiendo, 
+                            nuestro objetivo principalmente es lograr buenas ventas para que la fundación tenga un buen aporte del grupo de amigas.
+                            Acompañanos a cumplir este lindo objetivo!
+                        </p>
+                    </div>
+                    <div style="width: 60%; align-self: center;">
+                        <iframe class="youtube-video"  
+                        src="https://www.youtube.com/embed/AjhEjIWA_s4" title="YouTube video player" 
+                        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; 
+                        picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <br>
+    <!--Inicio de footer-->
+    <footer id="footer">
+        <div class="row col-12 footercenter">
+            <div class="col-lg-2">
+                <img src="{% static 'img/icono.png' %}" alt="logoMascotitas" width="60px" style="margin-top:20px;">
+            </div>
+            <div class="col-lg-1" style="margin-top:20px; align-content: center;">
+                <a href="{% url 'Inicio' %}" id="linkFooter" style="text-decoration: none; color:black;" ><strong>INICIO</strong></a>
+            </div>
+            <div class="col-lg-2" style="margin-top: 20px;" >
+                <strong style="color: black; ">SÍGUENOS</strong>
+                <br><br>
+                <div class="row">
+                    <a href="https://www.facebook.com/" target="_blank">
+                        <img src="{% static 'img/fblogo.png' %}"  width="30px" height="30px"
+                            style=" margin-left: 15px;">
+                    </a>
+                    <a href="https://twitter.com/?lang=es" target="_blank">
+                        <img src="{% static 'img/twitterico.png' %}"  width="30px" height="30px" style=" margin-left: 10px;">
+                    </a>  
+                    <a href="https://www.instagram.com/" target="_blank">
+                         <img src="{% static 'img/instagramico.png' %}"  width="30px" height="30px" style=" margin-left: 10px;">
+                    </a>     
+
+                </div>
+            </div>
+            <div class="col-lg-3" style="margin-top:20px;">
+                <strong style="color:black;">CONTACTO</strong>
+                <br><br>
+                <div class="row">
+                    <img src="{% static 'img/ubi.png' %}" alt="" width="20px" height="20px"
+                        style="margin-right: 10px; margin-left: 15px;">
+                    <p style="color: black;">Av. Esq. Blanca 501, Maipú</p>
+                </div>
+                <div class="row">
+                    <img src="{% static 'img/telefono.png' %}" alt="" width="20px" height="20px"
+                        style="margin-right: 10px; margin-left: 15px;">
+                    <p style="color: black;">2257807711</p>
+                </div>
+                <div class="row">
+                    <img src="{% static 'img/email.png' %}" alt="" width="20px" height="20px"
+                        style="margin-right: 10px; margin-left: 15px;">
+                    <p style="color: black;">consulta@mascotitas.cl</p>
+                </div>
+                <br><br><br>
+
+                <p style="color: black;">&copy; Mascotitas - 2023</p>
+            </div>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>  
+</body>
+</html>
+{% endblock %}

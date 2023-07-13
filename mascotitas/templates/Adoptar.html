@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/estilos.css' %}" rel="stylesheet">
+</head>
+<body>
+    <div class="container" style="width: 70%;">
+        <div class="row">
+            {% for maskotitas in animalito %}
+            <div class="col-12 col-md-4">
+                <div class="card text-center">
+                    {% if maskotitas.imagen %}
+                        <img src="{{ maskotitas.imagen.url }}" class="card-img-top mx-auto" >
+                    {% else %} 
+                        <img src="{% static 'img/certificate.png' %}" class="card-img-top mx-auto">
+                    {% endif %}
+                    <div class="card-body">
+                        <h4 class="card-title">Nombre: {{ maskotitas.nombre }}</h4>
+                        <p class="card-text">
+                            Genero: {{ maskotitas.genero }}<br>
+                            Especie: {{ maskotitas.especie }}<br>
+                            Tamaño: {{ maskotitas.tamaño }}<br>
+                            Descripción: {{ maskotitas.descripcion }}<br>
+                       </p>
+                        <a href="{% url 'Inicio' %}" class="btn btn-success">Inicio</a>
+                        <a href="{% url 'login' %}" class="btn btn-warning">Login</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
+{% endblock %}

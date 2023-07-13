@@ -1,0 +1,139 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mascotitas</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/estilos.css' %}">
+    <link rel="icon" type="img/x-icon" href="{% static 'img/icono.png' %}">
+    <script src="{% static 'js/reloj.js' %}"></script>
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+    
+</head>
+<body onload="mueveReloj()">
+    <!--creamos menú de navegación-->
+    <nav class="navbar navbar-expand-sm navbar-light  navbarcolor" style="background-color: bisque;">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#opciones">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <!--insertamos logo-->
+        <a class="navbar-brand" href="{% url 'Inicio' %}" >
+            <img src="{% static 'img/icono.png' %}" href="{% url 'Inicio' %}" target="_blank" width="50px" height="50px">
+        </a>
+            <ul>
+                {% if user.is_authenticated %}
+                <ul class="navbar-nav mr-auto"> 
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'tienda' %}" target="_self">Articulos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'Crear' %}" target="_self">Crear </a>
+                    </li>
+                    {% if user.is_superuser %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'dos' %}">Ver Animalitos</a>
+                    </li>
+                    {% endif %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'Adoptar' %}" target="_self">Adoptar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" style="color: black;" href="#">Bienvenid@ {{ user.username }} </a>
+                    </li>
+                    
+                </ul>     
+                {% else %} 
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'Veterinarios' %}" target="_self">Veterinarios cercanos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'Mision' %}" target="_self">Misión de Mascotitas</a>
+                    </li>   
+                </ul>    
+                {% endif %}
+            </ul>
+            <ul>
+                  
+            </ul>
+            <br>
+            <ul>
+                <form name="form_reloj">
+                    <input type="text" name="reloj" size="10" 
+                    style="background-color : burlywood; color : black; font-family : Verdana, Arial, Helvetica; font-size : 8pt; text-align : center;" 
+                    onfocus="window.document.form_reloj.reloj.blur()">
+                </form>
+            </ul>
+            <ul>
+                <form class="form-inline mt-2 mt-md-0">
+                    <input class="form-control mr-sm-2" type="text" placeholder="¿Qué Objeto Buscas?" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="btnBuscar">Buscar</button>
+                </form>
+            </ul>
+            <ul>
+                <div >
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'logout' %}" id="regVerti" style="color: black;">
+                            <img src="{% static 'img/education.png' %}" alt="regVerti" width="30px">Cerrar sesión
+                        </a>
+                    {% else %}
+                    <a href="{% url 'registrar' %}" id="regVerti" style="color: black;">
+                        <img src="{% static 'img/education.png' %}" alt="regVerti" width="30px">Registrarse   
+                    </a>
+                    <a href="{% url 'login' %}" id="regVerti" style="color: black;">
+                        <img src="{% static 'img/dog.png' %}" alt="regVerti" width="30px">Iniciar sesión   
+                    </a>
+                    {% endif %}
+                </div>
+            </ul>
+        </div>
+    </nav> <!--cierre de menú-->
+
+{% block content %}
+
+{% endblock %}
+    <script type="text/javascript">
+        let ubicacionInicial = window.pageYOffset;
+        window.onscroll = function () {
+            let ubicacionPosterior = window.pageYOffset;
+            if (ubicacionInicial >= ubicacionPosterior) {
+                document.getElementById("barraNav").style.top = "0";
+            }
+            else {
+                document.getElementById("barraNav").style.top = "-70px";
+            }
+            ubicacionInicial = ubicacionPosterior
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')</script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/validacion.js' %}"></script>
+    
+</body>
+</html>
+    

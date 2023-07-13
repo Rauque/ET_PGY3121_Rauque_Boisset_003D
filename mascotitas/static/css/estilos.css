@@ -1,0 +1,102 @@
+body{
+    background-color:burlywood;
+}
+
+#footer{
+    background-color:bisque;
+    color: bisque;
+}
+
+
+.navbarcolor{
+    background-color: burlywood;
+}
+
+#spacediv{
+    margin-top: 20px;
+}
+
+.footercenter{
+    justify-content:space-between
+}
+
+.colorbtn{
+    background-color: red; 
+    color: black; 
+    border-color: black;
+    text-decoration: none;
+}
+
+.productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 20px;
+    
+  }
+  
+  .producto {
+    background-color: bisque;
+    padding: 20px;
+    text-align: center;
+    border-radius: 7px;
+  }
+  
+  .producto img {
+    width: 70%;
+    border-radius: 7px;
+  }
+  
+  .producto h3 {
+    margin-top: 10px;
+    margin-bottom: 5px;
+  }
+  
+  .producto p {
+    font-weight: bold;
+  }
+  
+  .producto button {
+    background-color: burlywood;
+    border-radius: 7px;
+    border-color: black;
+    color: black;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 10px;
+  }
+
+  .youtube-video {
+    aspect-ratio: 16 / 9;
+    width: 100%;
+  }
+
+  .error-control{
+    border: 1px solid red;
+}
+label.error{
+    color:red;
+    width: 250px;
+    font-size: 0.8em;
+    margin-top:-5px;
+    margin-bottom: 10px;
+}
+
+#enviar{
+  clear: both;
+  float:left;
+  width: 150px;
+}
+
+#limpiar{
+  float:left;
+  width: 150px;
+  margin-left: 15px;
+
+}
+  
+.card-equal-height .card {
+  height: 100%;
+}

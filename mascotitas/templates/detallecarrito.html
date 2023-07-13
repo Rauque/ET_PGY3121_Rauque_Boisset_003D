@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mostrar Vehiculos</title>
+    {% load static %}
+</head>
+<body>
+    <div class="container">
+        <h3> Detalle de Compra </h3>
+        <br>
+        <h6>Nombre del Cliente: {{ usuario }}</h6>
+        <br>
+        <h6>Fecha: {{ fecha }}</h6>
+        <hr>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Código Boleta</th>
+                    <th>Código Producto</th>
+                    <th>Cantidad</th>
+                    <th>IVA</th>
+                    <th>Subtotal</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for prod in productos%}
+                <tr>
+                    <td>{{ prod.id_boleta }}</td>
+                    <td>{{ prod.id_producto }}</td>
+                    <td>{{ prod.cantidad }}</td>
+                    <td>{{ prod.subtotal_imp }}</td>
+                    <td>{{ prod.subtotal }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            <tr>
+                <td><h6>Envio : {{ envio }}</h6></td>   
+            </tr>
+            <tr>
+                <td><h6>Total IVA: {{ total_imp }}</h6></td>   
+            </tr>
+            <tr>
+                <td><h6>Total Compra: {{ total }}</h6></td>
+            </tr>
+        </table>
+        <a href="{% url 'tienda'%}" id="linkFooter" style="text-decoration: none; color:black;" ><strong>Volver a Tienda</strong></a>
+    </div>
+</body>
+</html>
+{% endblock %}

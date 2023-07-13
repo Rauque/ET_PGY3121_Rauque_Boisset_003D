@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/estilos.css' %}">
+    <link rel="icon" type="img/x-icon" href="{% static 'img/icono.png' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.js"></script>    
+    <title>Registro</title>
+    <script src="js/valida.js"></script>
+    <script>
+        let url='https://jsonplaceholder.typicode.com/users';
+        fetch(url)
+            .then(response =>response.json())
+            .then(data => mostrarData(data))
+            .catch(error => console.log(error))
+
+        const mostrarData=(data)=>{
+            console.log(data)
+            let body=""
+            for (var i=0; i<data.length; i++)
+            {
+                body+=`<tr>                             
+                    <td>${data[i].name}</td>
+                    <td><p class="texto">${data[i].address.street + '\t' + data[i].address.suite}</p></td>
+                    </tr>`
+            }
+            document.getElementById('data').innerHTML=body
+
+        }
+    </script>
+    <style>
+        .texto{
+            color:blue;
+            font-family: 'Times New Roman', Times, serif;
+        }
+    </style>
+</head>
+<body>  
+    <div class="container-fluid" style="width: auto; text-align: center;">
+        <h2>Datos de veterinarios</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Dirección </th>
+                </tr>
+            </thead>
+            <tbody id="data">
+            </tbody>
+        </table>
+    </div>
+
+    <br>
+    <footer id="footer" >
+        <div class="row col-12 footercenter">
+            <div class="col-lg-2">
+                <img src="{% static 'img/icono.png' %}" alt="logoMascotitas" width="60px" style="margin-top:20px;">
+            </div>
+            <div class="col-lg-1" style="margin-top:20px; align-content: center;">
+                <a href="{% url 'Inicio' %}" id="linkFooter" style="text-decoration: none; color:black;" ><strong>INICIO</strong></a>
+            </div>
+            <div class="col-lg-2" style="margin-top: 20px;" >
+                <strong style="color: black; ">SÍGUENOS</strong>
+                <br><br>
+                <div class="row">
+                    <a href="https://www.facebook.com/" target="_blank">
+                        <img src="{% static 'img/fblogo.png' %}"  width="30px" height="30px"
+                            style=" margin-left: 15px;">
+                    </a>
+                    <a href="https://twitter.com/?lang=es" target="_blank">
+                        <img src="{% static 'img/twitterico.png' %}"  width="30px" height="30px" style=" margin-left: 10px;">
+                    </a>  
+                    <a href="https://www.instagram.com/" target="_blank">
+                         <img src="{% static 'img/instagramico.png' %}"  width="30px" height="30px" style=" margin-left: 10px;">
+                    </a>     
+
+                </div>
+            </div>
+            <div class="col-lg-3" style="margin-top:20px;">
+                <strong style="color:black;">CONTACTO</strong>
+                <br><br>
+                <div class="row">
+                    <img src="{% static 'img/ubi.png' %}" alt="" width="20px" height="20px"
+                        style="margin-right: 10px; margin-left: 15px;">
+                    <p style="color: black;">Av. Esq. Blanca 501, Maipú</p>
+                </div>
+                <div class="row">
+                    <img src="{% static 'img/telefono.png' %}" alt="" width="20px" height="20px"
+                        style="margin-right: 10px; margin-left: 15px;">
+                    <p style="color: black;">2257807711</p>
+                </div>
+                <div class="row">
+                    <img src="{% static 'img/email.png' %}" alt="" width="20px" height="20px"
+                        style="margin-right: 10px; margin-left: 15px;">
+                    <p style="color: black;">consulta@mascotitas.cl</p>
+                </div>
+                <br>
+                <p style="color: black;">&copy; Mascotitas - 2023</p>
+            </div>
+        </div>
+    </footer>
+    <!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>  
+</body>
+</html>
+{% endblock %}
